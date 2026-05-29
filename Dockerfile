@@ -11,6 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn
 
 FROM python:3.12.10-slim
 
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 RUN useradd -r -m -u 1001 appuser
